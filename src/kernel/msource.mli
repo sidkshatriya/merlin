@@ -15,7 +15,7 @@ type position = [
   | `Offset of int
   | `Logical of int * int
   | `End
-]
+] [@@deriving refl]
 
 val get_offset     : t -> [< position] -> [> `Offset of int]
 

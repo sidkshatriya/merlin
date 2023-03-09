@@ -33,7 +33,7 @@ type json =
 | `Int of int
 | `List of json list
 | `Null
-| `String of string ]
+| `String of string ] [@@deriving refl]
 
 module Json = struct
   type t = json

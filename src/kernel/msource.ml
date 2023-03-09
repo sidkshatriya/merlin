@@ -26,7 +26,7 @@ type position = [
   | `Offset of int
   | `Logical of int * int
   | `End
-]
+] [@@deriving refl]
 
 exception Found of int
 

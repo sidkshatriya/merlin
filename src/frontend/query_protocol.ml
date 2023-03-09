@@ -60,7 +60,7 @@ struct
     | `Values
     | `Variants
     | `Keywords
-  ]
+  ] [@@deriving refl]
 end
 
 type completions = Compl.t
@@ -94,11 +94,11 @@ type error_filter = {
   lexing : bool;
   parsing : bool;
   typing : bool;
-}
+} [@@deriving refl]
 
 type is_tail_position = [`No | `Tail_position | `Tail_call]
 
-type _ _bool = bool
+type _ _bool = bool [@@deriving refl]
 
 type _ t =
   | Type_expr(* *)
@@ -198,3 +198,8 @@ type _ t =
     -> Location.t list t
   | Version
     : string t
+[@@deriving refl]
+
+let show_t t = Refl.show t_refl [None] t
+
+let pp_t f t = Format.fprintf f "%s" @@ show_t t  

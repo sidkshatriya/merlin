@@ -2,8 +2,9 @@
  (name        query_protocol)
  (public_name merlin-lib.query_protocol)
  (modules     query_protocol)
+ (preprocess (pps refl.ppx))
  (flags :standard -open Merlin_utils -open Merlin_kernel -open Ocaml_parsing -open Merlin_kernel)
- (libraries merlin_kernel merlin_utils ocaml_parsing))
+ (libraries merlin_kernel merlin_utils ocaml_parsing refl))
 
 (library
  (name        query_commands)

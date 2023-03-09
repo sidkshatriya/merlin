@@ -202,4 +202,6 @@ type _ t =
 
 let show_t t = Refl.show t_refl [None] t
 
-let pp_t f t = Format.fprintf f "%s" @@ show_t t  
+let pp_t f t = 
+  Format.fprintf f "%s" @@ show_t t;
+  Format.pp_print_flush f ()  

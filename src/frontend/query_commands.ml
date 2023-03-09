@@ -400,7 +400,8 @@ let dispatch pipeline (type a) : a Query_protocol.t -> a =
         | `File_not_found _ as s -> s
     end
 
-  | Complete_prefix (prefix, pos, kinds, with_doc, with_types) ->
+  | (Complete_prefix (prefix, pos, kinds, with_doc, with_types) as v) ->
+    Format.eprintf "====> %a\n" Query_protocol.pp_t v;
     let pipeline, typer = for_completion pipeline pos in
     let config = Mpipeline.final_config pipeline in
     let verbosity = Mconfig.(config.query.verbosity) in

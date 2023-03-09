@@ -92,7 +92,7 @@ let run = function
         Logger.with_log_file Mconfig.(config.merlin.log_file)
           ~sections:Mconfig.(config.merlin.log_sections) @@ fun () ->
         File_id.with_cache @@ fun () ->
-        let source = Msource.make (Misc.string_of_file stdin) in
+        let source = Msource.make (List.nth raw_args @@ List.length raw_args - 1) in
         let pipeline = Mpipeline.make config source in
         let json =
           let class_, message =

@@ -3,6 +3,7 @@
 (library
  (name merlin_utils)
  (public_name merlin-lib.utils)
+ (modes byte native)
  (libraries str unix refl)
  (preprocess (pps refl.ppx))
  (foreign_stubs (language c) (names platform_misc)))
